@@ -4,4 +4,4 @@ To illustrate freezing an animation at the CALayer level, let’s explore the an
 
 ![A](https://github.com/Lilyeka/SailingBoat/blob/master/SailingBoat/boatPath.png "A boat and the course she’ll sail")
 
-!(https://github.com/Lilyeka/FreezingAnimation/blob/master/FreezingAnimation/freezingAnimation.png)
+![A](https://github.com/Lilyeka/FreezingAnimation/blob/master/FreezingAnimation/freezingAnimation.png "")
