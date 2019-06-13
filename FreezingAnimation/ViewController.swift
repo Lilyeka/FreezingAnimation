@@ -9,6 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var parentLay: CALayer = {
+        var lay = CALayer()
+        lay.frame = CGRect(x: 100, y: 400, width: 150, height: 150)
+        lay.borderColor = UIColor.black.cgColor
+        lay.borderWidth = 1
+        lay.masksToBounds = true
+        return lay
+    }()
+    
+    var lay: CALayer = {
+        var lay = CALayer()
+        lay.contents = UIImage(named: "boat")!.cgImage
+        return lay
+    }()
+    
     var shape: CAShapeLayer!
     
     var myView: UIView = {
@@ -27,6 +43,25 @@ class ViewController: UIViewController {
         view.addSubview(myView)
         view.addSubview(slider)
         initShape()
+        
+        self.view.layer.addSublayer(parentLay)
+        lay.frame = parentLay.bounds
+        parentLay.addSublayer(lay)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        transitionExample()
+    }
+    
+    func transitionExample() {
+        let t = CATransition()
+        t.type = .push
+        t.subtype = .fromBottom
+        t.duration = 4
+        CATransaction.setDisableActions(true)
+        lay.contents = UIImage(named: "cheburash")!.cgImage
+        lay.add(t, forKey: nil)
     }
     
     func initShape() {
